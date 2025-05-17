@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message Log</title>
+     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>All Messages</h1>
+        <div class="messages">
+            {% if messages %}
+                {% for timestamp, message in messages.items() %}
+                    <div class="message">
+                        <p><strong>Time:</strong> {{ timestamp }}</p>
+                        <p><strong>Username:</strong> {{ message.username }}</p>
+                        <p><strong>Message:</strong> {{ message.message }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No messages found.</p>
+            {% endif %}
+        </div>
+        <a href="/">Go Back</a>
+    </main>
+</body>
+</html>
